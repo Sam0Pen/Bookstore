@@ -44,5 +44,15 @@ public class BookController {
 		bookRepository.deleteById(bookId);
 		return "redirect:../books";
 	}
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public String addBook(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("book", bookRepository.findById(id));
+		return "bookedit";
+	}
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String saveEditBook(@ModelAttribute Book book) {
+		bookRepository.save(book);
+		return "redirect:/books";
+	}
 
 }
