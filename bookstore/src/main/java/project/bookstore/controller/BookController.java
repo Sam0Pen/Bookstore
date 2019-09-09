@@ -2,6 +2,8 @@ package project.bookstore.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,8 @@ public class BookController {
 	
 	@RequestMapping(value= "/index", method = RequestMethod.GET)
 	public String newBook(Model model){
-		model.addAttribute("book", new Book());
+		List<Book> books = (List<Book>) bookRepository.findAll();
+		model.addAttribute("books", books);
 		return "index";
 		
 	}
