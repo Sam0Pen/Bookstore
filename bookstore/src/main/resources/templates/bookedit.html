@@ -17,6 +17,8 @@
 	<input type="text" th:field="*{isbn}" />
 	<input type="text" th:field="*{price}" />
 	<input type="submit" class="btn btn-success" value="Save" />
+	<select id="catlist" th:field="*{category}" class="form-control">
+	<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
 	</form>
     
 </body>
