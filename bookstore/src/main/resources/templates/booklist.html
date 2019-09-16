@@ -3,10 +3,12 @@
 <head>
     <title>Book Store</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
 	<h1>Books</h1>
-	<table>
+	<table class="table table-striped">
 		<tr>
 		<th>Id</th>
 		<th>Title</th>
@@ -23,7 +25,8 @@
 			<td th:text="${book.year}">year</td>
 			<td th:text="${book.isbn}">isbn</td>
 			<td th:text="${book.price}">price</td>
-			<td><a th:href="@{/deletebook/{id}(id=${book.id})}">Delete</a></td>
+			<td th:text="${book.category.name}">category</td>
+			<td><a th:href="@{/deletebook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 			<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
 			</tr>
 		</table>

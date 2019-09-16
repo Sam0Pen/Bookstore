@@ -3,6 +3,8 @@
 <head>
     <title>Book form</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </head>
 <body>
 	<h1>Book</h1>
@@ -12,7 +14,16 @@
 	<p>Year: <input type="text" th:field="${book.year}" /></p>
 	<p>Isbn: <input type="text" th:field="${book.isbn}" /></p>
 	<p>Price: <input type="text" th:field="${book.price}" /></p>
-	<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+	<div style="clear: both; display: block; height: 10px"></div>
+	<p>Category</p><select id="catlist" th:field="*{category}" class="form-control">
+	<option th:each="category: ${categorys}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+	</select>
+	<div style="clear: both; display: block; height: 10px"></div>
+	
+	
+	
+	
+	<input type="submit" value="Submit" class="btn btn-success" /> <input type="reset" value="Reset" />
 	</form>
     
 </body>
