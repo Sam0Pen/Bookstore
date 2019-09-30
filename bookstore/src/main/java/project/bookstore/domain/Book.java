@@ -21,7 +21,7 @@ public class Book {
 	private double price;
 	
 	@ManyToOne
-	@JsonIgnore
+	
 	@JoinColumn(name ="categoryid")
 	private Category category;
 	

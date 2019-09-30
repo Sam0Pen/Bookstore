@@ -28,6 +28,11 @@ public class BookController {
 	@Autowired
 	CategoryRepository catrepository;
 	
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
+	
 	@RequestMapping(value= "/booklist", method = RequestMethod.GET)
 	public String newBook(Model model){
 		List<Book> books = (List<Book>) bookRepository.findAll();
@@ -36,7 +41,7 @@ public class BookController {
 		
 	}
 	
-	@RequestMapping(value="books", method = RequestMethod.GET)
+	@RequestMapping(value="/books", method = RequestMethod.GET)
 	public @ResponseBody List<Book> bookListRest(){
 		return (List<Book>) bookRepository.findAll();
 	}
