@@ -16,6 +16,7 @@ import project.bookstore.domain.BookRepository;
 import project.bookstore.domain.Category;
 
 
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class BookRepositoryTest {
@@ -37,6 +38,7 @@ public class BookRepositoryTest {
 		repository.save(book);
 		assertThat(book.getId()).isNotNull();
 		repository.delete(book);
+		assertThat(repository.count()).isEqualTo(2);
 		
 	}
 	

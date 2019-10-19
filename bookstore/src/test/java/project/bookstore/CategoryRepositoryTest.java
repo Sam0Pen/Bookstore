@@ -37,7 +37,9 @@ public class CategoryRepositoryTest {
 		Category category = new Category("Manga");
 		repository.save(category);
 		assertThat(category.getCategoryid()).isNotNull();
+		assertThat(repository.count()).isEqualTo(4);
 		repository.delete(category);
+		assertThat(repository.count()).isEqualTo(3);
 		
 		
 	}
