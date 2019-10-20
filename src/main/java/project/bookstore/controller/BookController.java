@@ -65,7 +65,7 @@ public class BookController {
 	@RequestMapping(value = "/newbook", method = RequestMethod.POST)
 	public String saveBook(@ModelAttribute Book book) {
 		bookRepository.save(book);
-		return "redirect:/books";
+		return "redirect:/booklist";
 	}
 	
 	@RequestMapping(value= "/deletebook/{id}", method = RequestMethod.GET)
